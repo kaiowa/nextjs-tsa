@@ -8,6 +8,7 @@ import Config from '../common/config';
 import FeaturedProducts from '../components/featuredProducts/featuredProducts';
 import Spinner from '../components/ui/spinner/spinner';
 import ToTop from '../components/ui/totop/totop';
+import CategoriesHome from '../components/categoriesHome/categoriesHome';
 
 const Home = () => {
  
@@ -27,8 +28,8 @@ return (
     Lorem ippsumm
   </h1>
   <p className="text">Aquí estás y eres de los nuestros, no quieres en tu camiseta el logotipo de un caballo jugando al polo, ni un cocodrilo ni una golondrina, y tampoco quieres que te cobren 10 veces su valor solo por eso. Buscas artículos con personalidad propia, impactantes y que te definan.</p>
-  <ToTop></ToTop>
-  <div className="categories-shop">
+
+  {/* <div className="categories-shop">
         <div className="container-categories">
             <div className="row">
               {categorias.map(function(categoria){
@@ -37,11 +38,15 @@ return (
            
             </div>
         </div>
-    </div>
+    </div> */}
+
+    <CategoriesHome categories={categorias}></CategoriesHome>
     <FeaturedProducts products={productos}></FeaturedProducts>
 
     <Claim config={Config.claim1}></Claim>
     <Claim config={Config.claim2}></Claim>
+    <ToTop></ToTop>
+
     <NextSeo
       url="https://example.com/article"
       title="Adminin"
