@@ -7,6 +7,7 @@ import Claim from '../components/claim/claim';
 import Config from '../common/config';
 import FeaturedProducts from '../components/featuredProducts/featuredProducts';
 import Spinner from '../components/ui/spinner/spinner';
+import ToTop from '../components/ui/totop/totop';
 
 const Home = () => {
  
@@ -26,6 +27,7 @@ return (
     Lorem ippsumm
   </h1>
   <p className="text">Aquí estás y eres de los nuestros, no quieres en tu camiseta el logotipo de un caballo jugando al polo, ni un cocodrilo ni una golondrina, y tampoco quieres que te cobren 10 veces su valor solo por eso. Buscas artículos con personalidad propia, impactantes y que te definan.</p>
+  <ToTop></ToTop>
   <div className="categories-shop">
         <div className="container-categories">
             <div className="row">
@@ -114,6 +116,32 @@ return (
 
       * {
         box-sizing: border-box;
+      }
+      .totop{
+    
+        display:block;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        background-color: black;
+        opacity: 0.5;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        border-radius: 4px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        
+      }
+      .totop.show{
+        display:block;
+      }
+      .totop.hidden{
+        display:none;
       }
     `}</style>
     

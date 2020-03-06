@@ -12,7 +12,7 @@ function getLink(id,name){
 }
 return (
   <div className={featuredProductsStyle.containerProducts} >
-    <h1 className={featuredProductsStyle.h1title}>Top ventas</h1>
+    <h1 className={featuredProductsStyle.h1title}>Productos destacados</h1>
       <div className={featuredProductsStyle.containerProducts}>
         <div className={featuredProductsStyle.productshop}>
           {products.map(function(product){
