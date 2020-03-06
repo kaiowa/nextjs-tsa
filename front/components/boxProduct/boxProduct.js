@@ -1,4 +1,4 @@
-import boxStyles from "./boxproduct.module.scss";
+import boxStyles from "./boxProduct.module.scss";
 import Link from 'next/link';
 const BoxProduct = props =>{
 
