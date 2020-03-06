@@ -8,23 +8,33 @@ return (
     <div className={categoriesHomeStyles.row}>
       <div className={categoriesHomeStyles.col}>
           <div className={categoriesHomeStyles.box1} >
-            {categories[0].name}
+          <img src={`/images/categories/${categories[0].image}`} className={categoriesHomeStyles.imagen} />
+           
           </div>
           <div className={categoriesHomeStyles.box2} >
-          {categories[1].name}
+          <img src={`/images/categories/${categories[1].image}`}  className={categoriesHomeStyles.imagen}/>
+           
           </div>
       </div>
     
       <div className={categoriesHomeStyles.col}>
-        <div className={categoriesHomeStyles.box2} >{categories[2].name}</div>
-        <div className={categoriesHomeStyles.box1} >{categories[3].name}</div>
+        <div className={categoriesHomeStyles.box2} >
+        <img src={`/images/categories/${categories[2].image}`} className={categoriesHomeStyles.imagen} />
+        </div>
+        <div className={categoriesHomeStyles.box1} >
+        <img src={`/images/categories/${categories[3].image}`}  className={categoriesHomeStyles.imagen}/>
+        </div>
           
       </div>
     
 
       <div className={categoriesHomeStyles.col}>
-         <div className={categoriesHomeStyles.box1} >{categories[4].name}</div>
-          <div className={categoriesHomeStyles.box2} >{categories[5].name}</div>
+         <div className={categoriesHomeStyles.box1} >
+          <img src={`/images/categories/${categories[4].image}`} className={categoriesHomeStyles.imagen}/>
+         </div>
+        <div className={categoriesHomeStyles.box2} >
+          <img src={`/images/categories/${categories[5].image}`} className={categoriesHomeStyles.imagen} />
+        </div>
       </div>
     
 
