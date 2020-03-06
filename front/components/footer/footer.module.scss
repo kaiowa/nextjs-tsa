@@ -5,6 +5,11 @@
 
   display:flex;
   padding:40px;
+  a{
+    &:hover{
+      color:#E91E63;
+    }
+  }
   .bloque{
     font-size: 14px;
     .title{
@@ -20,5 +25,12 @@
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
+  }
+}
+@media (max-width: 769px) {
+  .footer{
+    .bloques{
+      flex-direction: column;
+    }
   }
 }

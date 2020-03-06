@@ -1,0 +1,18 @@
+{
+  "name": "scrapperfortsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaiowa",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "cheerio-tableparser": "^1.0.1",
+    "mongodb": "^3.5.4",
+    "node-wget": "^0.4.3",
+    "underscore": "^1.9.2"
+  }
+}

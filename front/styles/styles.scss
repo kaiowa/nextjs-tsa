@@ -1,11 +1,12 @@
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
 body {
-
     font-size: 15px;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Roboto Slab', serif;
     line-height: 1.80857;
+    margin: 0;
 }
 a {
     color: #1f1f1f;
@@ -17,7 +18,9 @@ a {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-
+.bold{
+    font-weight: bold;
+}
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     opacity: .8 
 }
@@ -95,3 +98,5 @@ left: 43%;
 .container-categories{
     margin-top: 50px;
 }
+
+

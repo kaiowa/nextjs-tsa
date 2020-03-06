@@ -9,20 +9,20 @@ return (<footer className={footerStyles.footer}>
   <div className={footerStyles.bloque}>
     <p className={footerStyles.title}>Categorias</p>
     <ul>  
-        <li>Brazaletes</li>
-        <li>Mochilas</li>
-        <li>Auriculares</li>
-        <li>Camisetas</li>
-        <li>Rejoles</li>
+        <li><a href="#">Brazaletes</a></li>
+        <li><a href="#">Mochilas</a></li>
+        <li><a href="#">Auriculares</a></li>
+        <li><a href="#">Camisetas</a></li>
+        <li><a href="#">Rejoles</a></li>
         
     </ul>
   </div>
   <div className={footerStyles.bloque}>
     <p className={footerStyles.title}>Enlaces</p>
     <ul>  
-        <li>Blog</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
     </ul>
   </div>
   <div className={footerStyles.bloque}>

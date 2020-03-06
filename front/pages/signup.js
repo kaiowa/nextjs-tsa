@@ -4,13 +4,13 @@ import fetch from 'isomorphic-unfetch';
 import useSWR from 'swr';
 import Link from 'next/link';
 // import people from '../data/data';
-import RegisterForm from '../components/registerform/registerform';
+
 
 const SignUp = () => {
 
   return (
     <div className="container">
-      <RegisterForm></RegisterForm>
+ 
       <style jsx global>{`
     .container {
       min-height: 100vh;

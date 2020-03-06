@@ -8,40 +8,49 @@
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
   align-self: auto;
-  width: 300px;
-  height: 350px;
+  width: 25%;
+  height: auto;
   border: 0px;
   margin: 15px;
-  
+    .title{
+      font-size: 13px;
+      line-height: 16px;
+      position: relative;
+    }
+    .precio{
+      position: relative;
+      bottom: 0px;
+      z-index: 1;
+      background-color: #fff;
+      width: 100%;
+      color: #E91E63;
+      padding-left: 10px;
+      text-align: center;
+      font-size: 22px;
+    }
+    .ventas{
+      position: relative;
+      top: 0px;
+      z-index: 1;
+      background-color: #E91E63;
+      width: 100%;
+      color: #fff;
+      padding-left: 10px;
+    }
     .shopcatbox{
       display: block;
       overflow: hidden;
       position: relative;
-      height: 100%;
-      border-radius: 10px;
-      .button{
-        position: absolute;
-        bottom: 11px;
-        z-index: 2;
-        width: 60%;
-        left: 57px;
-        background-color: #fff;
-        font-weight: bold;
-        height: 30px;
-        border: 1px solid;
-        font-size: 15px;
-        cursor: pointer;
-        &:hover{
-          // background-color: #000;
-          color:#f34159;
-          border-color:#000;
-        }
+      height: 200px;
+      text-align: center;
+    
+      .title{
+        z-index: 1;
       }
         .name{
           margin:0 auto;
           z-index: 2;
-          background-color: #bb0d25;
-          color: #fff;
+          
           text-align: center;
           position: relative
         }
@@ -52,20 +61,18 @@
           background: rgba(255, 255, 255, 0.3);
         }
         img{
-          position: absolute;
-          width: 100%;
+          position: relative;
+          width: auto;
           height: 100%;
-          min-height: 300px;
+          margin: 0 auto;
           top: 0;
           z-index: 1;
-          opacity: 0.6;
+       
         }
         &:hover{
           cursor: pointer;
           img{
             opacity: 1;
-            transform: scale(1.1);
-            transition-duration:1s;
           }
           
         }
