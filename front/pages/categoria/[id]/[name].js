@@ -36,7 +36,7 @@ function CategoriaName (props) {
     description={seoCat.description}
     keywords={seoCat.keywords}
     ></NextSeo>
-    <section className="headerImage" style={{background:'url(/images/categories/banner-brazaletes.jpg)'}}>
+    <section className="headerImage" style={{background:`url(/images/categories/${data.categoria[0].banner})`}}>
       <h1>{data.categoria[0].name}</h1>
     </section>
     <Claim config={claim1Config}></Claim>
@@ -60,7 +60,7 @@ function CategoriaName (props) {
       margin-top :72px;
     }
     .headerImage{
-      height: 120px;
+      height: 150px;
       color: #fff;
       align-items: center;
       display: flex;

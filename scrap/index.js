@@ -23,23 +23,10 @@ async function fetchHTML(url) {
 async function updateProduct(db,product){
   db.collection('products').replaceOne({url:product.url},{$set:product},{ upsert: true }  );
 }
-
-async function downloadImages(product){
-  
-  product.images.forEach(async (imagen,index) => {
- 
-    const options={
-      url:imagen.url,
-      dest:'./product_'+product.id+'_'+index
-    }
-    wget(options);
-    console.log(imagen.url);
-  });
-
-}
 async function getProduct(element){
   const $=await fetchHTML(element.url);
   cheerioTableparser($);
+  
   //metas
   let seoProduct=[{
     title:$("meta[name='title']").attr('content').trim(),
@@ -101,16 +88,20 @@ async function getProduct(element){
     assert.equal(null, err);
     console.log("Connected correctly to server");
     const db = client.db(dbName);
-
-    getProducts(db).then((Productos)=>{
-      Productos.forEach(async (element,index) => {
-        
-        let producto=await getProduct(element);
-        //downloadImages(producto);
-        updateProduct(db,producto);
-        
+    try {
+      getProducts(db).then((Productos)=>{
+        Productos.forEach(async (element,index) => {
+          if(index<1){
+          let producto=await getProduct(element);
+          await updateProduct(db,producto);
+          
+          }
+          });
         });
-      });
-    });
+      
+    } catch (error) {
+      
+    }
+  })
 
 })();
