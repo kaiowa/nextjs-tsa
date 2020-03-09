@@ -9,7 +9,7 @@ return (<header className={headerStyles.headerFirst}>
 <ul className={headerStyles.mainnav}>
   <li><a href="/">Inicio</a></li>
   <li><a href="/categorias.html">Categorias</a></li>
-  <li><a href="#">Blog</a></li>
+  <li><a href="/blog">Blog</a></li>
   <li><a href="#">Contact</a></li>
 </ul>
 </header> 

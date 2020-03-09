@@ -9,6 +9,7 @@ import FeaturedProducts from '../components/featuredProducts/featuredProducts';
 import Spinner from '../components/ui/spinner/spinner';
 import ToTop from '../components/ui/totop/totop';
 import CategoriesHome from '../components/categoriesHome/categoriesHome';
+import BlogHome from '../components/blogHome/blogHome';
 
 const Home = () => {
  
@@ -19,15 +20,16 @@ const Home = () => {
   });
   const categorias=(data ) ? data.categorias : null;
   const productos=data ? data.productos : null;
+  const blogentries=data ? data.blogentries : null;
   if (!data) return <Spinner></Spinner>;
  
 return (
   
   <div className="container container-home">
   <h1 >
-    Lorem ippsumm
+  Tienda online con accesorios para running
   </h1>
-  <p className="text">Aquí estás y eres de los nuestros, no quieres en tu camiseta el logotipo de un caballo jugando al polo, ni un cocodrilo ni una golondrina, y tampoco quieres que te cobren 10 veces su valor solo por eso. Buscas artículos con personalidad propia, impactantes y que te definan.</p>
+  <p className="text">Encontrarás todo lo que necesitas para salir a correr, zapatillas, brazaletes para llevar tu móvil, camisetas, auriculares, relojes.... Los mejores precios, las mejores marcas y los últimos modelos. Accesorios running es la tienda especializada en Running  líder en España</p>
 
   {/* <div className="categories-shop">
         <div className="container-categories">
@@ -45,6 +47,7 @@ return (
 
     <Claim config={Config.claim1}></Claim>
     <Claim config={Config.claim2}></Claim>
+    <BlogHome blogentries={blogentries}></BlogHome>
     <ToTop></ToTop>
 
     <NextSeo
@@ -70,8 +73,9 @@ return (
       }
       .container .text{
         font-size:1.3rem;
-        width:98%;
+        width:80%;
         line-height: 1.8rem;
+        text-align:center;
       }
      .container .categories-shop{
        margin-top:30px;

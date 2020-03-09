@@ -77,6 +77,7 @@ function CategoriaName (props) {
       margin-block-start: inherit;
       margin-block-end: inherit;
       margin-top: 13px;
+      text-shadow:3px 3px #000, 3px 3px #000;
     }
     .listaproductos {
       display: flex;
