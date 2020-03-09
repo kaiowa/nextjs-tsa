@@ -19,10 +19,11 @@ return (
           <button className={boxStyles.button}>Ver mas</button>
         </Link>
   
-      
       </div>
       <div className={boxStyles.description}>
+      <Link  href={{ pathname: `/categoria/${props.category.id}/${props.category.slug}.html` }} >
       {props.category.description}
+      </Link>
       </div>
   </div>
 )}

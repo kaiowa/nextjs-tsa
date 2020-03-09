@@ -33,10 +33,13 @@ class ToTop extends React.Component {
     })
   }
 
+  gotop =()=>{
+    console.log('alll top');
+  }
   render() {
     let show=(this.state && this.state.theposition) ? this.state.theposition :'hidden';
     console.log('position',this.state.theposition);
-    return <div className={`totop  ${show}`}><div className={totopStyles.arrow}></div></div>;
+    return <div className={`totop  ${show}`} ><div className={totopStyles.arrow}><img src="/images/arrowup.png"></img></div></div>;
     <style jsx>{`
     .show{
       display: block;
@@ -44,37 +47,8 @@ class ToTop extends React.Component {
     .hidden{
       display: none;
     }
-    .totop{
-      &.show{
-        display: block;
-      }
-      &.hidden{
-        display: none;
-      }
-      display:none;
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      bottom: 40px;
-      right: 40px;
-      background-color: black;
-      opacity: 0.5;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      border-radius: 4px;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      .arrow{
-        &::before{
-          content: "\f102";
-          width:20px;
-          height: 20px;
-        }
-      }
-    }
+    
+    
   `}</style>
   }
 }

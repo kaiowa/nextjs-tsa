@@ -1,4 +1,9 @@
 .totop{
+  &:before{
+   
+      content: "\f102";
+  
+  }
   &.show{
     display: block;
   }
@@ -21,11 +26,20 @@
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
-  .arrow{
-    &::before{
-      content: "\f102";
-      width:20px;
-      height: 20px;
-    }
-  }
+  
+}
+.arrow{
+  width: 62%;
+  height: 82%;
+  z-index: -2;
+  position: relative;
+  top: 4px;
+  left: 4px;
+  color: #fff;  
+  cursor: pointer;
+  img{
+    width: 30px;
+    height: 30px;
+    position: relative;
+  } 
 }

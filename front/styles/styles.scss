@@ -39,6 +39,13 @@ a {
     -moz-transition: all 0.4s;
     
   }
+  .totop:before{
+   
+        content: "\f102";
+   height: 20px;
+   width:20px;
+   position: relative;
+  }
   .totop.show{
     display:block;
   }
