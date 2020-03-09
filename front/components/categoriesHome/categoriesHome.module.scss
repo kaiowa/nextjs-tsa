@@ -59,15 +59,16 @@
     }
     .buttonCategorie{
       position: relative;
-      bottom: 50px;
+      bottom: 65px;
       left: 20px;
       width: 80%;
-      height: 30px;
+      height: 33px;
       background-color: #fff;
       border-color: #fff;
       font-size: 14px;
       cursor: pointer;
-      cursor: pointer;
+      border: 1px solid #c3bdbd;
+      border-radius: 3px;
       &:hover{
         background-color: #E91E63;
         color:#fff;
