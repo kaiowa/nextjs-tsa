@@ -91,11 +91,12 @@ async function getProduct(element){
     try {
       getProducts(db).then((Productos)=>{
         Productos.forEach(async (element,index) => {
-          if(index<1){
+          
           let producto=await getProduct(element);
+          console.log(producto);
           await updateProduct(db,producto);
           
-          }
+          
           });
         });
       

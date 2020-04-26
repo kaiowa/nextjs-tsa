@@ -52,14 +52,12 @@ return (
 
     <NextSeo
       url="https://example.com/article"
-      title="Adminin"
+      title="Accesorios Running"
       images={[
         'https://example.com/photos/1x1/photo.jpg',
       ]}
-      authorName="Sergio Campos"
-      publisherName="Kaiowa"
-      publisherLogo="https://www.example.com/photos/logo.jpg"
       description="Admin panel nextjs"
+      keywords="accesorios running, todo para runing, running mujer"
       />
      
     <style jsx>{`

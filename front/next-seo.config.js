@@ -1,12 +1,10 @@
 export default {
+  title:'Accesorios Running',
+  description:'metadescription accesorioasss',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    site_name: 'SiteName',
+    site_name: 'Accesorios Running.com',
   },
-  twitter: {
-    handle: '@handle',
-    site: '@site',
-    cardType: 'summary_large_image',
-  },
+
 }
