@@ -1,8 +1,11 @@
 import footerStyles from "./footer.module.scss";
 import Link from 'next/link';
+import ChatBot from '../chatBot/ChatBot';
+
 const Footer = props =>{
 
 return (<footer className={footerStyles.footer}>
+  <ChatBot></ChatBot>
   <div className={footerStyles.bloques}>
   <div className={footerStyles.bloque}>
     <p className={footerStyles.title}>Categorias</p>
