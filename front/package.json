@@ -16,6 +16,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.4",
     "next": "9.2.2",
+    "next-ga": "^2.3.4",
     "next-seo": "latest",
     "node-sass": "4.7.2",
     "react": "16.12.0",

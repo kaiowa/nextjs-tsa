@@ -26,6 +26,7 @@ function CategoriaName (props) {
   }
   let seoCat=data.categoria[0].seo;
   let productos=data.productos;
+  let claim_porque=data.categoria[0].claim_porque;
 
   return (
     <div className="container container-home">
@@ -51,6 +52,13 @@ function CategoriaName (props) {
       </div>
     </div>
 
+
+  <div className="categoriaAmpliado">
+      <div className="h3">¿Por qué comprar {data.categoria[0].name} ?</div>
+      <p> {data.categoria[0].claim_porque}</p>
+  </div>
+
+  
     <style jsx>{`
     .container {
       min-height: 100vh;
@@ -59,6 +67,18 @@ function CategoriaName (props) {
       align-items:center;
       margin-top :72px;
     }
+    .categoriaAmpliado{
+      display: block;
+      width: 90%;
+      text-align: left;
+      display: block;
+      text-align: left;
+      margin: auto;
+    }
+    .categoriaAmpliado .h3{
+      font-size:22px;
+    }
+
     .headerImage{
       height: 150px;
       color: #fff;
@@ -82,6 +102,8 @@ function CategoriaName (props) {
     .listaproductos {
       display: flex;
       flex-wrap: wrap;
+      width:90%;
+      margin:0 auto;
     }
   `}</style>
   </div>

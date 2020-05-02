@@ -3,7 +3,8 @@ import Link from 'next/link';
 // import ChatBot from '../chatBot/ChatBot';
 
 const Footer = props =>{
-
+  let d = new Date();
+  let year = d.getFullYear();
 return (<footer className={footerStyles.footer}>
   <div className={footerStyles.bloques}>
   <div className={footerStyles.bloque}>
@@ -34,7 +35,7 @@ return (<footer className={footerStyles.footer}>
   </div>
   </div>
   <div className={footerStyles.copy}>
-  Copyright © 2020 midominio.com. All rights reserved.
+  Copyright © {year} accesorios-running.com. 
   </div>
 </footer> 
 )}

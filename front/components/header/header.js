@@ -12,6 +12,7 @@ return (<header className={headerStyles.headerFirst}>
   <li><a href="/blog">Blog</a></li>
   <li><a href="#">Contact</a></li>
 </ul>
+
 </header> 
   
 )}
