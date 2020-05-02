@@ -20,19 +20,19 @@ return (<footer className={footerStyles.footer}>
   <div className={footerStyles.bloque}>
     <p className={footerStyles.title}>Enlaces</p>
     <ul>  
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        {/* <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li> */}
     </ul>
   </div>
-  <div className={footerStyles.bloque}>
+  {/* <div className={footerStyles.bloque}>
     <p className={footerStyles.title}>Enlaces</p>
     <ul>  
         <li>Blog</li>
         <li>About Us</li>
         <li>Contact Us</li>
     </ul>
-  </div>
+  </div> */}
   </div>
   <div className={footerStyles.copy}>
   Copyright © {year} accesorios-running.com. 

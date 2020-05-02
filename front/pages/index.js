@@ -53,9 +53,7 @@ return (
     <NextSeo
       url="https://example.com/article"
       title="Accesorios Running"
-      images={[
-        'https://example.com/photos/1x1/photo.jpg',
-      ]}
+     
       description="Admin panel nextjs"
       keywords="accesorios running, todo para runing, running mujer"
       />
