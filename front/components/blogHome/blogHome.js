@@ -1,5 +1,6 @@
 import blogHomeStyles from "./blogHome.module.scss";
 import Link from 'next/link';
+import Parser from 'html-react-parser';
 
 function prepareDescription(texto){
   return texto.split('</p>')[0]
@@ -17,7 +18,7 @@ return (
                 <div className={blogHomeStyles.col}>
                   <div className={blogHomeStyles.title}>{entrie.title}</div>
                   <div className="imageEntry"><img src={entrie.imageTitle} className={blogHomeStyles.imagen}></img></div>
-                  <div className={blogHomeStyles.description}>{prepareDescription(entrie.description)}</div>
+                  <div className={blogHomeStyles.description}>{Parser(prepareDescription(entrie.description))}</div>
                   </div>
                 )
           })}
