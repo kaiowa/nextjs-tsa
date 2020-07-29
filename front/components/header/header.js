@@ -9,7 +9,21 @@ return (<header className={headerStyles.headerFirst}>
   <li><a href="/blog">Blog</a></li>
   <li><a href="#">Contact</a></li>
 </ul>
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id='UA-1857557-15"
+  />
 
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-1857557-15');
+        `,
+    }}
+  />
 </header> 
   
 )}
