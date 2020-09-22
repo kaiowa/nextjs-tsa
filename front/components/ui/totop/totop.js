@@ -23,23 +23,17 @@ class ToTop extends React.Component {
   listenToScroll = () => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop
-  
-   
-    //const scrolled = winScroll / height
-   //const scrolled=  e.clientY - e.currentTarget.getBoundingClientRect().top
-   console.log(winScroll);
-    this.setState({
-      theposition: (winScroll>0)  ? 'show' : 'hidden',
-    })
+      this.setState({
+        theposition: (winScroll>0)  ? 'show' : 'hidden',
+      })
   }
 
   gotop =()=>{
-    console.log('alll top');
+    window.scrollTo(0,0);
   }
   render() {
     let show=(this.state && this.state.theposition) ? this.state.theposition :'hidden';
-    console.log('position',this.state.theposition);
-    return <div className={`totop  ${show}`} ><div className={totopStyles.arrow}><img src="/images/arrowup.png"></img></div></div>;
+    return <div className={`totop  ${show}`} onClick={this.gotop}><div className={totopStyles.arrow}><img src="/images/arrowup.png"></img></div></div>;
     <style jsx>{`
     .show{
       display: block;

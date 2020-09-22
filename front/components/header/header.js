@@ -5,9 +5,8 @@ return (<header className={headerStyles.headerFirst}>
 <h1 className={headerStyles.logo}><a href="/"><img src="/images/logo.png"/>Accesorios-running.com</a></h1>
 <ul className={headerStyles.mainnav}>
   <li><a href="/">Inicio</a></li>
-  <li><a href="/categorias">Categorias</a></li>
-  <li><a href="/blog">Blog</a></li>
-  <li><a href="#">Contact</a></li>
+  <li><a href="/categorias.html">Categorias</a></li>
+  <li><a href="/blog.html">Blog</a></li>
 </ul>
 <script
     async
