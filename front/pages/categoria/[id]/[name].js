@@ -107,7 +107,7 @@ CategoriaName.getInitialProps = async ({ req, query }) => {
   const { id} = query;
   const { protocol, host } = absoluteUrl(req)
 
-  const res = await fetch(`${protocol}//${host}/api/categorie/${id}`)
+  const res = await fetch(`http://${host}/api/categorie/${id}`)
   const json = await res.json()
 
   return {data:json}
