@@ -4,9 +4,15 @@ const Header = props =>{
 return (<header className={headerStyles.headerFirst}>
 <h1 className={headerStyles.logo}><a href="/"><img src="/images/logo.png"/>Accesorios-running.com</a></h1>
 <ul className={headerStyles.mainnav}>
-  <li><a href="/">Inicio</a></li>
-  <li><a href="/categorias.html">Categorias</a></li>
-  <li><a href="/blog.html">Blog</a></li>
+  <li>
+  <Link  href={{ pathname: `/` }} title="Inicio">Inicio</Link>
+  </li>  
+  <li>
+    <Link  href={{ pathname: `/categorias.html` }} title="Categorias">Categorias</Link>
+  </li>
+  <li>
+  <Link  href={{ pathname: `/blog.html` }} title="Blog">Blog</Link>
+  </li>
 </ul>
 <script
     async

@@ -5,29 +5,21 @@ import Spinner from '../../../components/ui/spinner/spinner';
 import useSWR from 'swr';
 import Claim from '../../../components/claim/claim';
 import Producto from '../../../components/producto/producto';
+import absoluteUrl from 'next-absolute-url'
 
 import fetch from 'isomorphic-unfetch'
 
 function CategoriaName (props) {
-  const router = useRouter()
-  const { id} = router.query;
   
- if(!id) return (<></>)
-  const {data, revalidate} = useSWR(`/api/categorie/${id}`, async function(args) {
-    const res = await fetch(args);
-    const json= await res.json();
-    return json;
-  });
- 
-  if(!data) return (<Spinner></Spinner>)
+  const data=props.data;
+  
   let claim1Config={
     title:'',
     description:data.categoria[0].claim1
   }
   let seoCat=data.categoria[0].seo;
   let productos=data.productos;
-  let claim_porque=data.categoria[0].claim_porque;
-
+ 
   return (
     <div className="container container-home">
     <NextSeo
@@ -110,12 +102,14 @@ function CategoriaName (props) {
   )
 }
 
-CategoriaName.getInitialProps = async () => {
+CategoriaName.getInitialProps = async ({ req, query }) => {
   console.log('get InitialPropppppsssss');
-  // const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  // const json = await res.json()
-  // console.log(json);
-  //return {  json }
-  return {}
+  const { id} = query;
+  const { protocol, host } = absoluteUrl(req)
+
+  const res = await fetch(`${protocol}//${host}/api/categorie/${id}`)
+  const json = await res.json()
+
+  return {data:json}
 }
 export default CategoriaName
