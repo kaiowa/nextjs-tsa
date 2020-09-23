@@ -8,6 +8,7 @@ const assert = require('assert');
 const url = 'mongodb://localhost:27017';
 const dbName = 'nextjstsa';
 
+const agents=require('./userAgents.json');
 var _ = require('underscore');
 var wget = require('node-wget');
 
@@ -17,11 +18,35 @@ async function getProducts(db){
 }
 
 async function fetchHTML(url) {
-  const { data } = await axios.get(url)
-  return cheerio.load(data)
+  try {
+    const randomAgent = Math.floor(Math.random() * agents.length);
+    const { data } = await axios.get(url,{ headers: { 'User-Agent': randomAgent }  })
+    return cheerio.load(data)  
+  } catch (error) {
+    
+  }
+  
 }
-async function updateProduct(db,product){
-  db.collection('products').replaceOne({url:product.url},{$set:product},{ upsert: true }  );
+async function updateProduct(db,producto){
+  
+  db.collection('products').replaceOne({url:producto.url},{"seo":producto.seo,
+    "title":producto.title,
+    "price":producto.price,
+    "images":producto.images,
+    "details":producto.details,
+    "url":producto.url,
+    "id":producto.id,
+    "name":producto.name,
+    "stars":producto.stars,
+    "cat":producto.cat,
+    "updated":producto.updated
+  },{ upsert: true }  );
+
+  db.collection('prices_history').insertOne({
+    "id":producto.id,
+    "price":producto.price,
+    "date":producto.updated
+  });
 }
 async function getProduct(element){
   const $=await fetchHTML(element.url);
@@ -45,7 +70,7 @@ async function getProduct(element){
   const stars=$('.reviewCountTextLinkedHistogram.noUnderline').text().replace(/\n/g,'').trim();
   let images=JSON.parse($('#landingImage').attr('data-a-dynamic-image'));
   let imagesP=[];
-  _.each(images,function(index,item){
+  _.each(images,async function(index,item){
     const image={
       url:item
     }
@@ -55,7 +80,7 @@ async function getProduct(element){
   const technicalDetails=$('.pdTab table');
   let productDetails=[];
   var data = technicalDetails.parsetable(false, false, true);
-  _.each(data[0],function(item,index){
+  _.each(data[0],async function(item,index){
     if(item){
       let propsP={
         "title":item,
@@ -75,7 +100,8 @@ async function getProduct(element){
     "id":element.id,
     "name":element.name,
     "stars":stars,
-    "cat":element.cat
+    "cat":element.cat,
+    "updated":new Date().toISOString()
   }
   return product;
 }
@@ -83,21 +109,28 @@ async function getProduct(element){
 (async () => {
 
   const options={useUnifiedTopology:true}
-  MongoClient.connect(url,options, function(err, client) {
+  MongoClient.connect(url,options, async function(err, client) {
 
     assert.equal(null, err);
-    console.log("Connected correctly to server");
+    
     const db = client.db(dbName);
     try {
       getProducts(db).then((Productos)=>{
+        
         Productos.forEach(async (element,index) => {
-          
-          let producto=await getProduct(element);
-          console.log(producto);
-          await updateProduct(db,producto);
+          try {
+            let producto=await getProduct(element);
+            console.log(producto.url);
+            producto.update=new Date();
+            await updateProduct(db,producto);
+          } catch (error) {
+            
+          }
+         
           
           
           });
+          console.log('terminado');
         });
       
     } catch (error) {
