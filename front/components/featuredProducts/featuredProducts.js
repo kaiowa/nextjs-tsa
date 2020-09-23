@@ -8,7 +8,7 @@ const FeaturedProducts = props =>{
 
   console.log('productos featured',products);
 function getLink(id,name){
-  return `/category/${id}/${name}.html`;
+  return `/category/${id}/${nameseo}.html`;
 }
 return (
   <div className={featuredProductsStyle.containerProducts} >

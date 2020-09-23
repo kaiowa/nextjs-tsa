@@ -6,7 +6,8 @@ module.exports = withSass({
     return {
       '/': { page: '/' },
       '/categorias.html': { page:'/categorias'},
-      '/blog.html': { page:'/blog'}
+      '/blog.html': { page:'/blog'},
+      '/comparador.html':{page:'/comparador'}
     }
   }
 })

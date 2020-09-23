@@ -10,6 +10,10 @@ const Producto = props =>{
   function onChange (isVisible) {
     console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
   }
+  function addComparison(){
+    console.log(producto);
+
+  }
 
 return (
   <div className={ProductoStyles.producto}>
@@ -24,6 +28,7 @@ return (
         <p className={ProductoStyles.title}>{producto.title}</p>
         <p className={ProductoStyles.precio}>{producto.price}</p>
       </a>
+      <button onClick={addComparison}>Add</button>
     </div>
   </div>
 );

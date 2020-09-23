@@ -7,7 +7,7 @@ async function getCategories(db){
   return Categories;
 }
 async function getTopProducts(db){
-  const Products=await db.collection('products').find({},{projection:{id:-1,name:-1,images:-1,ventas:-1,price:-1,title:-1}}).sort({ventas:-1}).limit(5).toArray();
+  const Products=await db.collection('products').find({},{projection:{id:-1,name:-1,nameseo:-1,images:-1,ventas:-1,price:-1,title:-1,url:-1}}).sort({ventas:-1}).limit(5).toArray();
   return Products;
 }
 async function getBlogHome(db){

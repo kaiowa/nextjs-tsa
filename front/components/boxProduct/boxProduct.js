@@ -16,7 +16,7 @@ return (
       {/* <p className={boxStyles.ventas}>{props.product.ventas} ventas</p> */}
       <p className={boxStyles.name}>{props.product.name}</p>
       <div className={boxStyles.shopcatbox}>
-        <a href={getLink(props.product.id,props.product.title)} title={props.product.title}>
+        <a href={getLink(props.product.id,props.product.nameseo)} title={props.product.title}>
           <img src={props.product.images[0].url} title={props.product.title+' running'}/>
         </a>
       </div>

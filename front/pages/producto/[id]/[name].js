@@ -5,7 +5,7 @@ import Spinner from '../../../components/ui/spinner/spinner';
 import useSWR from 'swr';
 import Claim from '../../../components/claim/claim';
 import Producto from '../../../components/producto/producto';
-
+import FichaProducto from '../../../components/fichaProducto/fichaProducto';
 import fetch from 'isomorphic-unfetch'
 
 function CategoriaName (props) {
@@ -49,7 +49,8 @@ function CategoriaName (props) {
           {/* <div className="paginacion">1 de xx</div> */}
       </div>
       <div className="listaproductos">
-        <Producto producto={producto}></Producto>
+        <FichaProducto producto={producto}></FichaProducto>
+        
       </div>
     </div>
 

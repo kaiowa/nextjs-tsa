@@ -24,6 +24,7 @@
     "node-sass": "4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-google-charts": "^3.0.15",
     "react-visibility-sensor": "^5.1.1",
     "serverless-mysql": "^1.5.3",
     "sql-template-strings": "^2.2.2",

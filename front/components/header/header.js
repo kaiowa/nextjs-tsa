@@ -11,6 +11,9 @@ return (<header className={headerStyles.headerFirst}>
     <Link  href={{ pathname: `/categorias.html` }} title="Categorias">Categorias</Link>
   </li>
   <li>
+    <Link  href={{ pathname: `/comparador.html` }} title="Comparador">Comparador</Link>
+  </li>
+  <li>
   <Link  href={{ pathname: `/blog.html` }} title="Blog">Blog</Link>
   </li>
 </ul>
