@@ -18,7 +18,7 @@ function CategoriaName (props) {
     description:data.categoria[0].claim1
   }
   let seoCat=data.categoria[0].seo;
-  seoCat.title='▷ '+seoCat+' - accesorios-running.com'
+  seoCat.title='▷ '+seoCat.title+' - accesorios-running.com'
   let productos=data.productos;
  
   return (
