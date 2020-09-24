@@ -20,7 +20,7 @@ return (
     <div className={ProductoStyles.productoContent}>
       <a href={producto.url} rel="nofollow" target="_blank" title={producto.name}>
         <div className={ProductoStyles.overlay}></div>
-        <img src={producto.images[0].url} className={ProductoStyles.image} title={producto.name}></img>
+        <img src={producto.images[0].url} className={ProductoStyles.image} alt={producto.seoname} title={producto.name}></img>
       </a>
     </div>
     <div className={ProductoStyles.productoSubContent}>
