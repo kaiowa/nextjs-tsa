@@ -18,14 +18,15 @@ function CategoriaName (props) {
     description:data.categoria[0].claim1
   }
   let seoCat=data.categoria[0].seo;
+  seoCat.title='▷ '+seoCat+' - accesorios-running.com'
   let productos=data.productos;
  
   return (
     <div className="container container-home">
     <NextSeo
     title={seoCat.title}
-    authorName="Sergio Campos"
-    publisherName="Kaiowa"
+    authorName="Accesorios Running.com"
+    publisherName="Accesorios-running"
     description={seoCat.description}
     keywords={seoCat.keywords}
     ></NextSeo>

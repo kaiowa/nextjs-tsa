@@ -52,10 +52,9 @@ return (
 
     <NextSeo
       url="https://example.com/article"
-      title="Accesorios Running"
-     
-      description="Admin panel nextjs"
-      keywords="accesorios running, todo para runing, running mujer"
+      title="▷ Accesorios Running | Tienda online "
+      description="Compra online de Accesorios Running al mejor precio. "
+      keywords="accesorios running, todo para runing, running mujer, running barato"
       />
      
     <style jsx>{`
