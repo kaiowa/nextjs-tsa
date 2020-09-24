@@ -37,6 +37,7 @@ async function updateProduct(db,producto){
     "url":producto.url,
     "id":producto.id,
     "name":producto.name,
+    "nameseo":producto.nameseo,
     "stars":producto.stars,
     "cat":producto.cat,
     "updated":producto.updated
@@ -101,6 +102,7 @@ async function getProduct(element){
     "name":element.name,
     "stars":stars,
     "cat":element.cat,
+    "nameseo":element.nameseo,
     "updated":new Date().toISOString()
   }
   return product;
@@ -119,10 +121,12 @@ async function getProduct(element){
         
         Productos.forEach(async (element,index) => {
           try {
+            
             let producto=await getProduct(element);
             console.log(producto.url);
             producto.update=new Date();
             await updateProduct(db,producto);
+
           } catch (error) {
             
           }

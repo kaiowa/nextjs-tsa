@@ -28,7 +28,10 @@ return (
         <p className={ProductoStyles.title}>{producto.title}</p>
         <p className={ProductoStyles.precio}>{producto.price}</p>
       </a>
-      <button onClick={addComparison}>Add</button>
+    </div>
+    <div className={ProductoStyles.botonera}>
+    <button >Comparar</button>
+    <button >Precios</button>
     </div>
   </div>
 );

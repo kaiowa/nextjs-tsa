@@ -18,6 +18,16 @@ const fichaProducto = props =>{
 return (
   <div className={fichaProductoStyles.producto}>
   ficha de productoooo
+  <div className="carrousel">
+
+
+  </div>
+  <div className="image-product">
+  
+  </div>
+  <div className="datos-producto">
+  
+  </div>
     <div className={fichaProductoStyles.productoContent}>
       <a href={producto.url} rel="nofollow" target="_blank" title={producto.name}>
         <div className={fichaProductoStyles.overlay}></div>
