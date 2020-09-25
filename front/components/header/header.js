@@ -1,6 +1,18 @@
 import headerStyles from "./header.module.scss";
 import Link from 'next/link';
+import { useDispatch,useSelector } from 'react-redux';
+import {agregarProducto, eliminarProducto} from '../../redux/actions/comparadorActions';
+
 const Header = props =>{
+
+  const {comparador} = useSelector((state) =>{
+    const {counter} = state;
+    console.log('comparador',state)
+    return {counter}
+
+});
+const dispatch = useDispatch();
+
 return (<header className={headerStyles.headerFirst}>
 <h1 className={headerStyles.logo}><a href="/"><img src="/images/logo.png"/>Accesorios-running.com</a></h1>
 <ul className={headerStyles.mainnav}>
@@ -11,7 +23,7 @@ return (<header className={headerStyles.headerFirst}>
     <Link  href={{ pathname: `/categorias.html` }} title="Categorias">Categorias</Link>
   </li>
   <li>
-    <Link  href={{ pathname: `/comparador.html` }} title="Comparador">Comparador</Link>
+    <Link  href={{ pathname: `/comparador.html` }} title="Comparador">Comparador ()</Link>
   </li>
   <li>
   <Link  href={{ pathname: `/blog.html` }} title="Blog">Blog</Link>

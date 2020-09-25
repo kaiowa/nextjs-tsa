@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import ProductoStyles from "./producto.module.scss";
+import { useDispatch,useSelector } from 'react-redux';
+import {agregarProducto, eliminarProducto} from '../../redux/actions/comparadorActions';
 
 const Producto = props =>{
-
+  const dispatch = useDispatch();
   const [loginError, setLoginError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,7 +32,7 @@ return (
       </a>
     </div>
     <div className={ProductoStyles.botonera}>
-    <button >Comparar</button>
+    <button onClick={() => {dispatch(agregarProducto(producto))}}>Comparar</button>
     <button >Precios</button>
     </div>
   </div>
