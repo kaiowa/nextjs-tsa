@@ -3,11 +3,11 @@ import ProductoStyles from "./producto.module.scss";
 import { useDispatch,useSelector } from 'react-redux';
 import {agregarProducto, eliminarProducto} from '../../redux/actions/comparadorActions';
 
+
+
+
 const Producto = props =>{
   const dispatch = useDispatch();
-  const [loginError, setLoginError] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const producto=props.producto;
   function onChange (isVisible) {
     console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
@@ -15,6 +15,10 @@ const Producto = props =>{
   function addComparison(){
     console.log(producto);
 
+  }
+
+  function getLink(id,name){
+    return `/producto/${id}/${name}.html`;
   }
 
 return (
@@ -33,8 +37,9 @@ return (
     </div>
     <div className={ProductoStyles.botonera}>
     <button onClick={() => {dispatch(agregarProducto(producto))}}>Comparar</button>
-    <button >Precios</button>
+    <button ><a href={getLink(producto.id,producto.nameseo)}>Precios</a></button>
     </div>
+  
   </div>
 );
 };

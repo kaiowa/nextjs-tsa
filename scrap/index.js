@@ -34,6 +34,7 @@ async function updateProduct(db,producto){
     "price":producto.price,
     "images":producto.images,
     "details":producto.details,
+    "bullets":producto.bullets,
     "url":producto.url,
     "id":producto.id,
     "name":producto.name,
@@ -69,33 +70,43 @@ async function getProduct(element){
     price= $('#priceblock_dealprice').text().trim();
   }
   const stars=$('.reviewCountTextLinkedHistogram.noUnderline').text().replace(/\n/g,'').trim();
-  let images=JSON.parse($('#landingImage').attr('data-a-dynamic-image'));
+  
   let imagesP=[];
-  _.each(images,async function(index,item){
+  $('#altImages img').each(function(i,value) {
     const image={
-      url:item
+           url:$(value).attr('src').replace('40_.jpg','400_.jpg')
     }
     imagesP.push(image);
-  })
-
-  const technicalDetails=$('.pdTab table');
+  });
+  
+  let bullets=[];
+  $('#featurebullets_feature_div ul span[class="a-list-item"]').each(function(i,value) {
+    if(i>0) bullets.push($(value).text().replace(/\n/g,'').trim());
+  });
+  
+  const technicalDetails=$('.prodDetTable');
   let productDetails=[];
   var data = technicalDetails.parsetable(false, false, true);
+ 
   _.each(data[0],async function(item,index){
     if(item){
       let propsP={
         "title":item,
         "value":data[1][index].replace(/\n/g,'')
       }
+      //console.log(propsP);
       productDetails.push(propsP);
+      
     }
   });
+  console.log('------------');
 
   const product={
     "seo":seoProduct,
     "title":title,
     "price":price,
     "images":imagesP,
+    "bullets":bullets,
     "details":productDetails,
     "url":element.url,
     "id":element.id,
@@ -120,21 +131,23 @@ async function getProduct(element){
       getProducts(db).then((Productos)=>{
         
         Productos.forEach(async (element,index) => {
-          try {
-            
-            let producto=await getProduct(element);
-            console.log(producto.url);
-            producto.update=new Date();
-            await updateProduct(db,producto);
+          //if(index<2){
+ 
+            try {
+              
+              let producto=await getProduct(element);
+              console.log(producto.url);
+              producto.update=new Date();
+              await updateProduct(db,producto);
 
-          } catch (error) {
-            
-          }
+            } catch (error) {
+              
+            }
          
-          
+         // }
           
           });
-          console.log('terminado');
+          
         });
       
     } catch (error) {

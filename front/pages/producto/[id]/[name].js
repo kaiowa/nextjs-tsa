@@ -8,10 +8,14 @@ import Producto from '../../../components/producto/producto';
 import FichaProducto from '../../../components/fichaProducto/fichaProducto';
 import fetch from 'isomorphic-unfetch'
 
+import AliceCarousel from 'react-alice-carousel'
+import  AliceCarouselCSS from 'react-alice-carousel/lib/scss/alice-carousel.scss';
+
 function CategoriaName (props) {
   const router = useRouter()
   const { id} = router.query;
-  
+  const handleOnDragStart = (e) => e.preventDefault()
+
  if(!id) return (<></>)
   const {data, revalidate} = useSWR(`/api/product/${id}`, async function(args) {
     const res = await fetch(args);
@@ -26,7 +30,7 @@ function CategoriaName (props) {
   }
   let seoCat=data.categoria.seo;
   let producto=data.producto;
-
+  console.log('procuto;',data.precios);
   return (
     <div className="container container-home">
     <NextSeo
@@ -37,24 +41,36 @@ function CategoriaName (props) {
     keywords={seoCat.keywords}
     ></NextSeo>
     <ol className="arrows">
-      <li><a href="#">Inicio</a></li>
-      <li><a href={`/categoria/${data.categoria.id}/${data.categoria.name}.html`}>{data.categoria.name}</a></li>
-      <li>Nombre del producto</li>
+      <li><a href="/" title="Accesorios Running">Inicio</a></li>
+      <li><a href={`/categoria/${data.categoria.id}/${data.categoria.name}.html`} title={data.categoria.name}>{data.categoria.name}</a></li>
+      <li>{producto.name}</li>
     </ol>
 
-    <h1>{data.categoria.name}</h1>
-    
-    <div className="listados">
-      <div className="header">
-          {/* <div className="paginacion">1 de xx</div> */}
+    <div className="fichaProducto">
+      <h1>{producto.name}</h1>
+      
+      <div className="listados">
+        <div className="header">
+            {/* <div className="paginacion">1 de xx</div> */}
+        </div>
+        <div className="listaproductos">
+          <FichaProducto producto={producto} precios={data.precios}></FichaProducto>
+        </div>
       </div>
-      <div className="listaproductos">
-        <FichaProducto producto={producto}></FichaProducto>
-        
-      </div>
-    </div>
 
+    </div>
     <style jsx>{`
+    .fichaProducto{
+      padding-left:20px;
+      padding-right:20px;
+    }
+    .fichaProducto h1{
+      color: #E91E63;
+      line-height: 2.2rem;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      margin-top: 30px;
+    }
     .container {
       min-height: 100vh;
       display: block;
@@ -79,15 +95,26 @@ function CategoriaName (props) {
       margin: 0 auto;
       margin-block-start: inherit;
       margin-block-end: inherit;
-      margin-top: 13px;
+    
     }
     .listaproductos {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: wrap;   
     }
+    
 
 
-.arrows { white-space: nowrap; display:inline-block;margin-top :15px}
+.arrows { 
+  white-space: nowrap;
+  display: inline-block;
+  /* margin-top: 15px; */
+  width: 100%;
+  background-color: #fbb0c9;
+  color: #fff;
+  padding:5px;
+  z-index: 1;
+
+ }
 .arrows li {
     display: inline-block;
     line-height: 15px;
@@ -97,7 +124,7 @@ function CategoriaName (props) {
 }
 .arrows li::before,
 .arrows li::after {
-    border-right: 1px solid #666666;
+    border-right: 3px solid #fff;
     content: '';
     display: block;
     height: 50%;
@@ -105,8 +132,8 @@ function CategoriaName (props) {
     left: 0;
     right: 0;
     top: 0;
-    z-index: -1;
-    transform: skewX(45deg);   
+    transform: skewX(45deg);  
+ 
 }
 .arrows li::after {
     bottom: 0;
@@ -123,12 +150,17 @@ function CategoriaName (props) {
    font-size: 15px;
    letter-spacing: -1px; 
    text-decoration: none;
+   color:#fff;
 }
 
-.arrows li:nth-of-type(1) a { color: hsl(0, 0%, 70%); } 
-.arrows li:nth-of-type(2) a { color: hsl(0, 0%, 65%); } 
-.arrows li:nth-of-type(3) a { color: hsl(0, 0%, 50%); } 
-.arrows li:nth-of-type(4) a { color: hsl(0, 0%, 45%); } 
+.arrows li:nth-of-type(1) a { color: #fff;z-index: 2;
+  position: relative; } 
+.arrows li:nth-of-type(2) a { color: #fff;z-index: 2;
+  position: relative;} 
+.arrows li:nth-of-type(3)  { color: #3a3d6a;z-index: 2;
+  position: relative;} 
+.arrows li:last-of-type(4)  { color: #3a3d6a;z-index: 2;
+  position: relative; } 
   `}</style>
   </div>
   )

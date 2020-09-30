@@ -8,7 +8,8 @@ import Footer from '../components/footer/footer'
 
 import store from '../redux/store';
 
-export default function MyApp({ Component, pageProps }) {
+
+export default function MyApp({ Component,pageProps} ) {
   return (
     /* Here we call NextSeo and pass our default configuration to it  */
     <>
