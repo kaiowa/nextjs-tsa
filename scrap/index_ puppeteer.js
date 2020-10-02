@@ -1,4 +1,6 @@
 const axios = require("axios")
+const puppeteer = require('puppeteer')
+
 const cheerio = require("cheerio")
 const cheerioTableparser = require('cheerio-tableparser');
 const fs=require('fs');
@@ -16,11 +18,28 @@ async function getProducts(db){
   const Products=await db.collection('products_base').find({}).toArray();
   return Products;
 }
+async function crawURL(url){
 
+  const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    await page.goto(url)
+    await page.waitFor(5000);
+    //await page.screenshot({path:'uno.png'});
+    const result = await page.evaluate(() => {
+      
+      return{document}
+    });
+    await browser.close();
+    console.log('### Crawl complete ###');
+    
+  
+    
+    return cheerio.load(result);
+
+}
 async function fetchHTML(url) {
   try {
     const randomAgent = Math.floor(Math.random() * agents.length);
-    console.log(agents[randomAgent]);
     const { data } = await axios.get(url,{ headers: { 'User-Agent': randomAgent }  })
     return cheerio.load(data)  
   } catch (error) {
@@ -52,7 +71,7 @@ async function updateProduct(db,producto){
   });
 }
 async function getProduct(element){
-  const $=await fetchHTML(element.url);
+  const $=await crawURL(element.url);
   cheerioTableparser($);
   
   //metas
@@ -129,10 +148,10 @@ async function getProduct(element){
     
     const db = client.db(dbName);
     try {
-      getProducts(db).then(async (Productos)=>{
-          var a=0;
-        for (const element of Productos) {
-          if(a<2){
+      getProducts(db).then((Productos)=>{
+        
+        Productos.forEach(async (element,index) => {
+          //if(index<2){
  
             try {
               
@@ -145,13 +164,11 @@ async function getProduct(element){
               
             }
          
-          }
-          a++;
-          };
-          console.log('terminado');
-          process.exit(1);
+         // }
+          
+          });
+          
         });
-
       
     } catch (error) {
       

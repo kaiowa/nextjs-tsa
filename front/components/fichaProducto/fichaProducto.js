@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import fichaProductoStyles from "./fichaProducto.module.scss";
 import Chart from "react-google-charts";
+import RelacionadosCategoria from '../relacionadosCategoria/relacionadosCategoria';
 
 class fichaProducto extends React.Component {
 //const fichaProducto = (props) =>{
@@ -10,6 +11,8 @@ class fichaProducto extends React.Component {
     let imagenActiva=producto.images[0].url;
     let precios=props.precios;
     
+    const relacionados=props.relacionados;
+  
     let PreciosChart=[];
     let entrada=['Tipo','Fecha'];
     PreciosChart.push(entrada);
@@ -25,7 +28,7 @@ class fichaProducto extends React.Component {
     })
   
    
-    this.state = {imagenActivaS:imagenActiva,productoS:producto,preciosS:precios,PreciosChartS:PreciosChart};
+    this.state = {imagenActivaS:imagenActiva,productoS:producto,preciosS:precios,PreciosChartS:PreciosChart,relacionados:relacionados};
   }
   componentDidMount() {
     console.log('componente cargado');
@@ -105,6 +108,10 @@ return (
       </div>
   </div>
   
+
+  <div class="relacionados">
+        <RelacionadosCategoria productos={this.state.relacionados}></RelacionadosCategoria>
+  </div>
 </div>
 );
 }

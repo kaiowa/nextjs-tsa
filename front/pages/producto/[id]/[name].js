@@ -8,10 +8,8 @@ import Producto from '../../../components/producto/producto';
 import FichaProducto from '../../../components/fichaProducto/fichaProducto';
 import fetch from 'isomorphic-unfetch'
 
-import AliceCarousel from 'react-alice-carousel'
-import  AliceCarouselCSS from 'react-alice-carousel/lib/scss/alice-carousel.scss';
 
-function CategoriaName (props) {
+function ProductoName (props) {
   const router = useRouter()
   const { id} = router.query;
   const handleOnDragStart = (e) => e.preventDefault()
@@ -30,6 +28,8 @@ function CategoriaName (props) {
   }
   let seoCat=data.categoria.seo;
   let producto=data.producto;
+  const relacionados=data.relacionados;
+
   console.log('procuto;',data.precios);
   return (
     <div className="container container-home">
@@ -54,7 +54,7 @@ function CategoriaName (props) {
             {/* <div className="paginacion">1 de xx</div> */}
         </div>
         <div className="listaproductos">
-          <FichaProducto producto={producto} precios={data.precios}></FichaProducto>
+          <FichaProducto producto={producto} precios={data.precios} relacionados={data.relacionados}></FichaProducto>
         </div>
       </div>
 
@@ -166,7 +166,7 @@ function CategoriaName (props) {
   )
 }
 
-CategoriaName.getInitialProps = async () => {
+ProductoName.getInitialProps = async () => {
   console.log('get InitialPropppppsssss');
   // const res = await fetch('https://api.github.com/repos/zeit/next.js')
   // const json = await res.json()
@@ -174,4 +174,4 @@ CategoriaName.getInitialProps = async () => {
   //return {  json }
   return {}
 }
-export default CategoriaName
+export default ProductoName
