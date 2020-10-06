@@ -37,7 +37,7 @@ return (
     </div>
     <div className={ProductoStyles.botonera}>
     <button onClick={() => {dispatch(agregarProducto(producto))}}>Comparar</button>
-    <button ><a href={getLink(producto.id,producto.nameseo)}>Precios</a></button>
+    <button ><a href={getLink(producto.id,producto.nameseo)} className={ProductoStyles.enlaceprecios}>Precios</a></button>
     </div>
   
   </div>

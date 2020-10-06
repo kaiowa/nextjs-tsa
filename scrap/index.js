@@ -24,7 +24,7 @@ async function fetchHTML(url) {
     const { data } = await axios.get(url,{ headers: { 'User-Agent': randomAgent }  })
     return cheerio.load(data)  
   } catch (error) {
-    
+    console.log(error);
   }
   
 }
@@ -41,6 +41,7 @@ async function updateProduct(db,producto){
     "name":producto.name,
     "nameseo":producto.nameseo,
     "stars":producto.stars,
+    "nvaloraciones":producto.nvaloraciones,
     "cat":producto.cat,
     "updated":producto.updated
   },{ upsert: true }  );
@@ -53,6 +54,7 @@ async function updateProduct(db,producto){
 }
 async function getProduct(element){
   const $=await fetchHTML(element.url);
+  
   cheerioTableparser($);
   
   //metas
@@ -72,6 +74,9 @@ async function getProduct(element){
   }
   const stars=$('.reviewCountTextLinkedHistogram.noUnderline').text().replace(/\n/g,'').trim();
   
+  const nValoraciones=$('#acrCustomerReviewText').innerText.replace(/\n/g,'').trim();
+  console.log('valoraciones:'+nValoraciones);
+  console.log('-----------------');
   let imagesP=[];
   $('#altImages img').each(function(i,value) {
     const image={
@@ -113,6 +118,7 @@ async function getProduct(element){
     "id":element.id,
     "name":element.name,
     "stars":stars,
+    "nvaloraciones":nValoraciones,
     "cat":element.cat,
     "nameseo":element.nameseo,
     "updated":new Date().toISOString()
